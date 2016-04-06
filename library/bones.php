@@ -87,7 +87,8 @@ function bones_rss_version() { return ''; }
 
 // remove WP version from scripts
 function bones_remove_wp_ver_css_js( $src ) {
-	if ( strpos( $src, 'ver=' ) )
+	global $wp_version;
+	if ( strpos( $src, 'ver=' . $wp_version ) )
 		$src = remove_query_arg( 'ver', $src );
 	return $src;
 }
